@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <title>Implementando ChartJs</title>
+</head>
+<body style="display: flex;">
+
+    <div>
+      <canvas style="position: relative; height:30vh; width:30vw" id="myChart"></canvas>
+    </div>
+
+    <div>
+      <canvas style="position: relative; height:30vh; width:30vw" id="myChart2"></canvas>
+    </div>
+
+    <div>
+      <canvas style="position: relative; height:30vh; width:30vw" id="myChartPizza"></canvas>
+    </div>
+
+</body>
+</html>
+
+<script>
+  const labels = [
+    'January',
+    'February',
+    'March',
+    'April',
+    'May',
+    'June',
+  ];
+
+  const data = {
+    labels: labels,
+    datasets: [{
+      label: 'My first dataset',
+      backgroundColor: 'rgb(355, 99, 132)',
+      borderColor: 'rgb(255, 99, 132)',
+      data: [0, 10, 5, 22, 20, 30, 45],
+    }]
+  };
+
+  const config = {
+    type: 'line',
+    data: data,
+    options: {}
+  };
+
+  const config2 = {
+    type: 'bar',
+    data: data,
+    options: {}
+  };
+
+  const data2 = {
+  labels: [
+    'Red',
+    'Blue',
+    'Yellow'
+  ],
+  datasets: [{
+    label: 'My First Dataset',
+    data: [300, 50, 100],
+    backgroundColor: [
+      'rgb(255, 99, 132)',
+      'rgb(54, 162, 235)',
+      'rgb(255, 205, 86)'
+    ],
+    hoverOffset: 4
+  }]
+};
+
+const configPizza = {
+  type: 'doughnut',
+  data: data2,
+};
+</script>
+
+<script>
+  const myChart = new Chart(
+    document.getElementById('myChart'),
+    config
+    );
+
+    const myChart2 = new Chart(
+    document.getElementById('myChart2'),
+    config2
+    );
+
+    const myChartPizza = new Chart(
+    document.getElementById('myChartPizza'),
+    configPizza
+    )
+</script>
+ 
